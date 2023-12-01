@@ -1,6 +1,6 @@
 // import { auth } from './config.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 import { getFirestore, collection, getDoc, doc, addDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 const firebaseConfig = {
     apiKey: "AIzaSyDhvJ24kaE8wc03h45FDtR5Oqzvw8eVo8g",
@@ -15,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
 // const db = getFirestore(app);
 const form = document.querySelector('#suform');
@@ -53,3 +54,29 @@ form.addEventListener('submit', (event)=> {
 
     })
 })
+
+var google = document.querySelector('#google');
+// Your existing code...
+
+var google = document.querySelector('#google');
+google.addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user);
+            
+            // Redirect to home.html after successful sign-in
+            location.href = './home.html';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // Handle errors as needed
+        });
+});
+
+// Continue with the rest of your code...

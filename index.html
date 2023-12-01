@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="signup.css">
     <title>Signup</title>
 </head>
@@ -10,22 +11,33 @@
     <form id="suform">
      <div class="containerDiv">
         <h2 class="text-center mb-4">Signup</h2>
-        <label class="form-label">Full Name <span>*</span></label>
+        <!-- <label class="form-label">Full Name <span>*</span></label> -->
         <input type="text" id="suname" class="form-control mb-4" placeholder="Name">
 
-        <label class="form-label">Email address <span>*</span></label>
+        <!-- <label class="form-label">Email address <span>*</span></label> -->
         <input type="text" id="suemail" placeholder="Email" class="form-control mb-4">
         
-        <label class="form-label">Password <span>*</span></label>
+        <!-- <label class="form-label">Password <span>*</span></label> -->
         <input type="password" id="supass" placeholder="Password" class="form-control mb-4">
         
         <button id="btn1" class="btn btn-primary mb-3">Signup</button>
         <p id="errorPara"></p>
-    </div><p class="text-center text-muted mt-5 mb-0">Have already an account? <a
+        <div class="col s12 m6 offset-m3 center-align">
+            <a id="google" class="oauth-container btn darken-4 white black-text" href="#" style="text-transform:none">
+                <div class="left">
+                    <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" 
+                        src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" />
+                </div>
+                Login with Google
+            </a>
+        </div>
+        
+    </div>
+    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
                                                 href="./login.html" class="fw-bold text-body"><u>Login here</u></a></p>
 </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     
     <script type="module" src="app.js"></script>
 </body>
